@@ -26,10 +26,26 @@ Installation :
 - Place the "Elo_tweets" folder where you want.
 - Open "config/elo_tweets.php"
 - Enter your consumer key, consumer secret, access token, access token secret
-- Open "Elo_tweets.php"
-- How many tweets you want to show (line n°35)
-- Enter your time's location (line n°91)
-- Translate to your language months and days.(line n°97)
+- Enter how many tweets you want to show
+- Enter your time's location
+- Translate to your language months and days
+- Choose cool words for calling date and time
+
 Now, it's done. Don't forget to include "Elo_tweets.php" where you want !
 
 If you want to modify the design, there is a css file available.
+
+If you want to modify time position (Ex : Monday 07 June to Monday June 07)
+- Open "elo_tweets.php" and go to line 114
+- modify "created_at" value
+
+For time : Wed Aug 29 17:12:58 +0000 2012
+- $hour = 17
+- $minutes =12
+- $seconds = 58
+- $day = Wed
+- $day_number = 29
+- $month = Aug
+- $year = 2012
+
+Good luck, and have fun !
