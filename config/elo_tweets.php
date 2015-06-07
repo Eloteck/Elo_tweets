@@ -17,7 +17,7 @@ return [
 	'Time Location'		=> 1, //UTC + your time location
 
 	//Traduction
-	
+
 	"mounth"			=> [
 								"January", 
 								"February",
@@ -45,4 +45,5 @@ return [
 
 	"time_call"			=>	'At',	//Example : At 09h36, the 07 Semptember 2015
 	"date_call"			=>	'the'
+	
 	];
