@@ -15,11 +15,11 @@ GitHub : Eloteck
 
 <div id="Twitter">
     <?php
-        $cache='../app/plugins/Elo_tweets/cache.tmp'; //Definition of "cache" folder
+        $cache='cache.tmp'; //Definition of "cache" folder
         
         if (time() - filemtime($cache) > 60){ // if cache is older than 1 minute
             // Connection to tweeter API
-            require 'twitterconnect/twitteroauth.php';
+            require_once 'twitterconnect/twitteroauth.php';
 
             $config = require_once 'config/elo_tweets.php';
             //---------------------------------------------------------------------
@@ -100,7 +100,7 @@ GitHub : Eloteck
                     
                     //----------------------------------------------------------------------------------------
                     //Translate to your language (here, french)
-                    $month_langage = $config['mouth'];
+                    $month_langage = $config['mounth'];
                     //Tranlate days to your language (first = Sunday)
                     $day_langage = $config['day'];
                     //----------------------------------------------------------------------------------------
