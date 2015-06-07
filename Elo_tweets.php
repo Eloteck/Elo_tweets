@@ -21,23 +21,23 @@ GitHub : Eloteck
             // Connection to tweeter API
             require 'twitterconnect/twitteroauth.php';
 
-            $access = require_once 'config/elo_tweets.php';
+            $config = require_once 'config/elo_tweets.php';
             //---------------------------------------------------------------------
             
             //################################################################################
             //###Place in config/elo_tweets yours connection ID's for twitter's connection.###
             //################################################################################
 
-            $consumer_key = $access['consumer']; 
-            $consumer_secret = $access['consumer_secret']; 
-            $access_token = $access['token']; 
-            $access_token_secret = $access['token_secret'];
+            $consumer_key = $config['consumer']; 
+            $consumer_secret = $config['consumer_secret']; 
+            $access_token = $config['token']; 
+            $access_token_secret = $config['token_secret'];
             
             //----------------------------------------------------------------------
 
             $connexion = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
             // Request timeline
-            $tweet = $connexion->get('statuses/user_timeline', array('count'=>3)); //Count = tweet's number
+            $tweet = $connexion->get('statuses/user_timeline', array('count'=>$config['nbTweetsToShow'])); //Count = tweet's number
             //Save tweet in cache
             file_put_contents($cache, serialize($tweet));
         } 
@@ -92,7 +92,7 @@ GitHub : Eloteck
 
 
                     //---------------------------------------------------
-                    $hour = $hour + 0; //your time's location (0 = UTF) Example : Paris = UTF+1
+                    $hour = $hour + 0; //your time's location (0 = UTC) Example : Paris = UTC+1
                     //---------------------------------------------------
                     if($hour == 24){ //Don't want show "24hXX"
                         $hour = "00";
@@ -100,9 +100,9 @@ GitHub : Eloteck
                     
                     //----------------------------------------------------------------------------------------
                     //Translate to your language (here, french)
-                    $month_langage = array("Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre");
+                    $month_langage = $config['mouth'];
                     //Tranlate days to your language (first = Sunday)
-                    $day_langage = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
+                    $day_langage = $config['day'];
                     //----------------------------------------------------------------------------------------
 
                     $month_english = array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
@@ -111,7 +111,7 @@ GitHub : Eloteck
                     $day_english = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
                     $day = str_replace($day_english, $day_langage, $day); //translation
 
-					$created_at = "Créé à ".$hour.":".$minutes.", le ".$day." ".$day_number." ".$month.".";
+					$created_at = $config['time_call']." ".$hour.":".$minutes.", ".$config['date_call']." ".$day." ".$day_number." ".$month.".";
                     ?>
                 <li>
                 	<img src="<?php echo $twitter_pp; ?>" alt="pp" class="tweet_image"/>
