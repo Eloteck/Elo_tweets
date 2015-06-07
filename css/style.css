@@ -1,0 +1,44 @@
+/*-----------------
+PASTE THIS TO YOUR CSS
+Created by Eloteck
+-------------------*/
+#Elo_tweets{
+    border-left: solid 5px #ff9000; 
+}
+
+#Elo_tweets ul{
+    padding-left: 15px;
+}
+
+#Elo_tweets ul li{
+    list-style: none;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #CCC;
+}
+
+#Elo_tweets .tweet{
+    margin-bottom: 0px;
+    font-size: 0.8em;
+}
+
+#Elo_tweets ul li .tweet_full{
+    width : 70%;
+    margin-left: 60px;
+}
+
+#Elo_tweets ul li .tweet_date{
+    font-size : 0.6em;
+    margin: 0px;
+    margin-top : 2px;
+}
+
+#Elo_tweets ul li .tweet_image{
+    float: left;
+    border-radius: 5px;
+    width : 48px;
+    height : 48px;
+}
+
+#Elo_tweets a{
+    color : #ff9000;
+}
